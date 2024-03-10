@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NotHangover</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                margin: 0;
+                font-family: Verdana, sans-serif;
+                background-color: #000000;
+                color: aliceblue;
+                align-items: center;
+                font-size: 30px;
+            }
+            /* Style the header */
+            .header {
+                color:#000000;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
+
+           
+            
+            /* Create three equal columns that floats next to each other */
+            .column {
+                float: left;
+                width: 50%;
+                padding: 10px;
+                padding-left: 10%;
+                padding-bottom: 30px;
+                align-items: center;
+                display: block;
+            }
+
+            /* Clear floats after the columns */
+            .row::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+
+            img{
+
+                width: 405px;
+                height: 720px;
+
+            }
+            button{
+                display: inline;
+                margin: 5px auto;
+                background-color: #fc0390;
+                border: none;
+                color: white;
+               padding: 15px 32px;
+                text-align: center;
+               text-decoration: none;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            @media screen and (max-width:600px) {
+            .column {
+            width: 100%;
+                 }
+            }
+
+            /* Modal Content */
+            /* The Modal (background) */
+            .modal {
+                align-items: center;
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                padding-top: 100px; /* Location of the box */
+                padding-left: 30%;
+                padding-right: 10%;
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+
+            /* Modal Content */
+            .modal-content {
+                align-items: center;
+                display: inline-block;
+                background-color: #e9e2e5;
+                margin: auto;
+                padding: 20px;
+                width: 55%;
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #000;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body onload="imgText()">
+
+
+        <div class="header">
+            <img src="header.jpg" alt="" style="width:1280px;height:110px;">
+          </div>
+
+
+        <div class="row">
+
+            <div class="column">
+                <h1> Hey, I won't be able to make it to work today. <span id="myText"></span> </h1>
+            <div class="butt">
+                <button id="btn1">Regenerate</button>
+                <button id="btn2">Download</button>
+            </div>
+            </div>
+
+            <div class="column">
+                <a href="random-image" download></a><img id= "random-image" src="" alt="Random Image">
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img src="modal1.jpg" style="width:438px;height:252.5px;">
+                <img src="modal2.jpg" style="width:438px;height:252.5px;">
+            </div>
+        </div>
+
+
+    </body>
+
+    <script>
+        const imgEl = document.getElementById('random-image');
+        const btn = document.getElementById('btn1');
+
+        const srcArray = ['img1.jpg', 'img2.jpg', 'img3.jpg', 'img4.jpg', 'img5.jpg', 'img6.jpg', 'img7.jpg','img8.jpg','img9.jpg'];
+
+
+        btn.addEventListener('click', () => {
+            randomImage();
+        });
+
+        let index;
+
+        randomImage();
+        function randomImage(){
+            const randomIndex = Math.floor(Math.random()*srcArray.length);
+            if (randomIndex !== index) {
+
+                imgEl.src = srcArray[randomIndex];
+
+                index = randomIndex;
+            } else {
+                randomImage();
+            }
+
+        }
+
+
+       function imgText(){
+        if (index == 0){
+            randText="I woke up this morning with a high fever."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 1) {
+            randText="I woke up this morning with a high fever."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 2) {
+            randText="Last night's storm left a lot of damage to my house."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 3) {
+            randText="Last night's storm completely wrecked my car."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 4) {
+            randText="A fallen tree has trapped my car in the driveway.";
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 5) {
+            randText="My basement flooded, I have to stay home for the repair guy."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 6) {
+            randText="My kitchen flooded, I have to stay home for the repair guy."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 7) {
+            randText="I had a minor car accident on the way to work."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+        else if (index == 8) {
+            randText="I had a minor car accident on the way to work."
+            document.getElementById("myText").innerHTML = randText;
+
+        }
+    }
+
+        btn.addEventListener('click', () => {
+            imgText();
+        });
+
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn2 = document.getElementById("btn2");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn2.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+    modal.style.display = "none";
+     }
+    }
+
+    </script>
+</html>
+
