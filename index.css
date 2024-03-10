@@ -1,0 +1,21 @@
+html, body {
+    background-color: #BDE0FE;
+    align-items: center;
+}
+
+#container {
+    align-items: center;
+}
+
+#image_container {
+
+
+    background-color: #fdfdff;
+    box-shadow: 10px 10px #3a0ca3;
+
+}
+
+#image {
+    border: 1px solid black;
+
+}
